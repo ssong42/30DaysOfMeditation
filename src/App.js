@@ -6,7 +6,7 @@ import moment from 'moment';
 import './App.css'
 
 //mp3 / wav sounds
-import metta from './sounds/metta.mp3'
+import metta from './sounds/singingBowl.wav'
 
 const App = () => {
   // Declare a new state variable, which we'll call "count"
@@ -18,7 +18,7 @@ const App = () => {
   m.format()
   
   console.log(metta);
-  const [audio, setAudio] = useState(new Audio(metta))
+  const [audio] = useState(new Audio(metta))
 
   const [timer, setTimer] = useState({
     time: m,
@@ -28,6 +28,8 @@ const App = () => {
 
   if (timer.timerOn) {
     if (timer.timeString === "00:00:00") {
+      audio.currentTime = 0
+      audio.play()
       setTimer({ ...timer, timerOn: false });
     } else {
       var interval = setTimeout(() => {
@@ -43,14 +45,15 @@ const App = () => {
 
   const BeginTimer = () => {
     if (timer.timeString !== "00:00:00" && !timer.timerOn) {
+      audio.currentTime = 0
       audio.play()
       setTimer({ ...timer, timerOn: true });
-
     }
   }
 
   const StopTimer = () => {
     clearTimeout(interval);
+    audio.pause();
     setTimer({ ...timer, timerOn: false });
   }
 
@@ -81,7 +84,7 @@ function Timer({ time }) {
   return (
     <div style={{ margin: "10px" }}>
       <Row>
-        <Col span={8} offset={8}>
+        <Col span={12} offset={6}>
           <Row style={{ border: "1px solid #D7FCD4", borderRadius: "5px" }}>
             <div style={{ height: "10px" }}></div>
             <Col span={6}>
