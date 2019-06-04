@@ -17,7 +17,6 @@ const App = () => {
   m.toISOString()
   m.format()
   
-  console.log(metta);
   const [audio] = useState(new Audio(metta))
 
   const [timer, setTimer] = useState({
@@ -66,7 +65,11 @@ const App = () => {
       <Row style={{ marginTop: "100px" }}>
         <Col>
           <TimePicker onChange={(time, timeString) => {
-            setTimer({ ...timer, time, timeString })
+            if (!time || timeString === "") {
+              setTimer({ ...timer, time: m, timeString: "00:00:00"})
+            } else {
+              setTimer({ ...timer, time, timeString })
+            }
           }} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
         </Col>
       </Row>
