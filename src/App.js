@@ -65,6 +65,9 @@ const App = () => {
       <Row style={{ marginTop: "100px" }}>
         <Col>
           <TimePicker onChange={(time, timeString) => {
+            if (timer.timerOn) {
+              return  
+            }
             if (!time || timeString === "") {
               setTimer({ ...timer, time: m, timeString: "00:00:00"})
             } else {
