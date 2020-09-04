@@ -21,7 +21,7 @@ const App = () => {
 
   const [timer, setTimer] = useState({
     time: m,
-    timeString: "00:00:00",
+    timeString: "00:00:01",
     timerOn: false
   });
 
