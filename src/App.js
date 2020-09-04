@@ -13,7 +13,7 @@ const App = () => {
   
   //Create the 0 time
   var m = moment().utcOffset(0);
-  m.set({ hour: 0, minute: 0, second: 0, millisecond: 0 })
+  m.set({ hour: 0, minute: 0, second: 25, millisecond: 0 })
   m.toISOString()
   m.format()
   
