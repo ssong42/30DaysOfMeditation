@@ -4,12 +4,12 @@
   "private": true,
   "dependencies": {
     "antd": "^3.19.2",
-    "express": "^4.17.1",
+    "express": "^4.22.1",
     "express-favicon": "^2.0.1",
     "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-sound": "^1.2.0"
   },
   "scripts": {
